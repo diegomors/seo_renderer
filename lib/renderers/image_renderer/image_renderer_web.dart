@@ -40,9 +40,7 @@ class _ImageRendererState extends RendererState<ImageRenderer> {
 
     final child = widget.child;
     if (child is Image) {
-      final image = (child.image is ResizeImage)
-          ? (child.image as ResizeImage).imageProvider
-          : child.image;
+      final image = (child.image is ResizeImage) ? (child.image as ResizeImage).imageProvider : child.image;
 
       if (image is NetworkImage) {
         return image.url;

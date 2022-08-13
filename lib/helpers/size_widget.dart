@@ -29,11 +29,10 @@ class _SizeWidgetRenderObject extends RenderProxyBox {
     final size = child?.size;
     if (size == null) return;
 
-    if (SchedulerBinding.instance?.schedulerPhase !=
-        SchedulerPhase.persistentCallbacks) {
+    if (SchedulerBinding.instance.schedulerPhase != SchedulerPhase.persistentCallbacks) {
       onSize(size);
     } else {
-      SchedulerBinding.instance?.addPostFrameCallback((_) => onSize(size));
+      SchedulerBinding.instance.addPostFrameCallback((_) => onSize(size));
     }
   }
 }
